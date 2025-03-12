@@ -1,9 +1,8 @@
 import aiofiles
 import os
 from app.services.convert_service import convert_to_text
-from app.services.ai_service import summarize_document
+from app.services.ai_service import summarize_document, create_embedding
 from app.services.mongo_service import save_mongo_data
-from app.services.ai_service import create_embedding
 from app.services.vector_service import save_vector_data
 from app.middlewares.app_error import AppError
 
