@@ -2,7 +2,7 @@ import aiofiles
 import os
 from app.services.convert_service import convert_to_text
 from app.services.ai_service import summarize_document, create_embedding
-from app.services.mongo_service import save_mongo_data
+from app.services.mongo_service import save_mongo_data, search_mongo_data
 from app.services.vector_service import save_vector_data
 from app.middlewares.app_error import AppError
 
@@ -22,3 +22,8 @@ async def upload_file(file, dir):
     embedding = await create_embedding(f"file: {file.filename} {summary}")
     await save_vector_data(str(doc.inserted_id), embedding, summary)
     return doc.inserted_id
+
+
+
+async def get_file(doc_id):
+    return await search_mongo_data(doc_id)
