@@ -3,7 +3,7 @@ from app.services.vector_service import search_vector_data
 from app.services.convert_service import convert_to_text
 from app.middlewares.app_error import AppError
 
-async def search_file(prompt, amount, file):
+async def search_file(prompt, amount):
     embedding = await create_embedding(prompt)
     if not len(embedding) == 768:
         raise AppError(status_code=400 ,detail="Error in embedding.")

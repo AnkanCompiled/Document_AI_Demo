@@ -19,7 +19,7 @@ async def answer_query(query, summary):
         return None
     
     messages = [
-        SystemMessage(content=f"Generate a human readable response based on this summary and just say 'Relevant Documents' if anyone asked on getting files and if data is not found say 'Data cannot be found. Please check relevant documents': {summary}"),
+        SystemMessage(content=f"Generate a human written response based on this summary and just say 'Relevant Documents' if anyone asked on getting files and if data is not found say 'Data cannot be found. Please check relevant documents': {summary}"),
         HumanMessage(content=query[:40000])
     ]
     
